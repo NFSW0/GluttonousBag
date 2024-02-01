@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3ri212u53j3u"]
+
+[ext_resource type="Script" path="res://OtherScene/Player/player.gd" id="1_sp5po"]
+[ext_resource type="Texture2D" uid="uid://b1nf5htry37o5" path="res://icon.svg" id="2_yi0jf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knjsc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n1oks"]
+radius = 5.0
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p10f"]
+radius = 5.0
+height = 12.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_esgfp"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_sp5po")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_yi0jf")
+
+[node name="InteractiveArea" type="Area2D" parent="."]
+collision_layer = 65536
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
+shape = SubResource("CircleShape2D_knjsc")
+
+[node name="_WoundArea" type="Area2D" parent="."]
+collision_layer = 1048576
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="_WoundArea"]
+shape = SubResource("CapsuleShape2D_n1oks")
+
+[node name="_" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7p10f")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_esgfp")
+
+[connection signal="area_entered" from="InteractiveArea" to="." method="_on_interactive_area_area_entered"]
+[connection signal="area_exited" from="InteractiveArea" to="." method="_on_interactive_area_area_exited"]
