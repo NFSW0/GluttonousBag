@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6e0tl8td7og1"]
+
+[ext_resource type="Texture2D" uid="uid://bwa6bdj26xfe3" path="res://Scene/SM/2DScene/Player/Player.png" id="1_4nbus"]
+[ext_resource type="Script" path="res://Scene/SM/2DScene/Player/player.gd" id="1_q6kaa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aqed"]
+radius = 29.0
+height = 90.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qlxmc"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3p6as"]
+radius = 50.2494
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 4
+script = ExtResource("1_q6kaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_6aqed")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_qlxmc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4nbus")
+
+[node name="_ItemArea" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="_ItemArea"]
+shape = SubResource("CircleShape2D_3p6as")
+
+[connection signal="area_entered" from="_ItemArea" to="." method="_on__item_area_area_entered"]
+[connection signal="area_exited" from="_ItemArea" to="." method="_on__item_area_area_exited"]

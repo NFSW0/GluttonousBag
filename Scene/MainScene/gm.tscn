@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://bontbb40pwx6d"]
+
+[ext_resource type="Script" path="res://Scene/MainScene/gm.gd" id="1_53b7e"]
+[ext_resource type="PackedScene" uid="uid://53vlya8rp7qm" path="res://Scene/UM/um.tscn" id="2_u72dh"]
+[ext_resource type="PackedScene" uid="uid://b7gaqmq5m31yd" path="res://Scene/SM/2DScene/World/world.tscn" id="3_vsccf"]
+[ext_resource type="PackedScene" uid="uid://bfshi8v4k2lev" path="res://Scene/SM/2DScene/DropItem/drop_item.tscn" id="4_0i631"]
+[ext_resource type="PackedScene" uid="uid://c6e0tl8td7og1" path="res://Scene/SM/2DScene/Player/player.tscn" id="4_a6y5s"]
+[ext_resource type="Resource" uid="uid://dx40yttrnvsef" path="res://Resource/Item/ErrorItem/error_item_2.tres" id="6_gbrgf"]
+[ext_resource type="Resource" uid="uid://bsg6xq0y3wet1" path="res://Resource/Item/ErrorItem/error_item.tres" id="7_7ymb6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ml2w5"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tn72c"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v7lno"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tfq5u"]
+normal = Vector2(-1, 0)
+
+[node name="GM" type="Node" node_paths=PackedStringArray("um", "sm")]
+script = ExtResource("1_53b7e")
+um = NodePath("UM")
+sm = NodePath("SM")
+world = ExtResource("3_vsccf")
+player = ExtResource("4_a6y5s")
+drop_item = ExtResource("4_0i631")
+items = Array[Resource("res://Resource/Item/item.gd")]([ExtResource("7_7ymb6"), ExtResource("6_gbrgf")])
+
+[node name="UM" parent="." instance=ExtResource("2_u72dh")]
+
+[node name="SM" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Scene/SM/2DScene/DropItem/drop_item.tscn", "res://Scene/SM/2DScene/Player/player.tscn", "res://Scene/SM/2DScene/World/world.tscn")
+spawn_path = NodePath(".")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UpCollide" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(-960, -540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UpCollide"]
+shape = SubResource("WorldBoundaryShape2D_ml2w5")
+
+[node name="LeftCollide" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(-960, -540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/LeftCollide"]
+shape = SubResource("WorldBoundaryShape2D_tn72c")
+
+[node name="DownCollide" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(960, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/DownCollide"]
+shape = SubResource("WorldBoundaryShape2D_v7lno")
+
+[node name="RightCollide" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(960, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/RightCollide"]
+shape = SubResource("WorldBoundaryShape2D_tfq5u")

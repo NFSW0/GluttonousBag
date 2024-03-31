@@ -1,0 +1,504 @@
+[gd_scene load_steps=2 format=3 uid="uid://dihsl6f86fs8u"]
+
+[ext_resource type="Script" path="res://Scene/UM/UIScene/Setting/setting.gd" id="1_m2bg0"]
+
+[node name="Setting" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m2bg0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "设置"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Graphic" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "图像"
+
+[node name="Audio" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "声音"
+
+[node name="Control" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "控制"
+
+[node name="Other" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "其他"
+
+[node name="HSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SettingPage" type="TabContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+tabs_visible = false
+
+[node name="Graphic" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage"]
+clip_contents = false
+layout_mode = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "全屏"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullScreen" type="CheckButton" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "分辨率"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Resolution" type="OptionButton" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 6
+popup/item_0/text = "640x480"
+popup/item_0/id = 0
+popup/item_1/text = "720x480"
+popup/item_1/id = 1
+popup/item_2/text = "720x576"
+popup/item_2/id = 2
+popup/item_3/text = "1280x720"
+popup/item_3/id = 3
+popup/item_4/text = "1366x768"
+popup/item_4/id = 4
+popup/item_5/text = "1920x1080"
+popup/item_5/id = 5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "垂直同步"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "响应优化"
+
+[node name="V_Sync" type="OptionButton" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 4
+popup/item_0/text = "关闭"
+popup/item_0/id = 0
+popup/item_1/text = "开启"
+popup/item_1/id = 1
+popup/item_2/text = "动态"
+popup/item_2/id = 2
+popup/item_3/text = "快速"
+popup/item_3/id = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "最大帧数(帧数限制)"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "电源优化"
+
+[node name="MaxFPS" type="SpinBox" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 10.0
+max_value = 120.0
+step = 10.0
+value = 60.0
+rounded = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "屏幕震动"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScreenVibration" type="CheckButton" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "界面缩放"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HUDScale" type="HSlider" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="Audio" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage"]
+visible = false
+clip_contents = false
+layout_mode = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "主音量"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterVolume" type="HSlider" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 6.0
+rounded = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "音乐音量"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BGMVolume" type="HSlider" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 6.0
+rounded = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "音效音量"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXVolume" type="HSlider" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 6.0
+rounded = true
+
+[node name="Control" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage"]
+visible = false
+clip_contents = false
+layout_mode = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RestoreDefault" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer"]
+layout_mode = 2
+text = "恢复默认"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "向上移动"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoveUp" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "向下移动"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoveDown" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "向左移动"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoveLeft" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "向右移动"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoveRight" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "跳跃"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Jump" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "互动/使用"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InteractionOrUse" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "取消/丢弃"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CancelOrDiscard" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Other" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage"]
+visible = false
+clip_contents = false
+layout_mode = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Other"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Other/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Other/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "语言"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Other/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Language" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Other/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "中文"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Complete" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "完成"
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Graphic" to="." method="_on_graphic_focus_entered"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Audio" to="." method="_on_audio_focus_entered"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Control" to="." method="_on_control_focus_entered"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Other" to="." method="_on_other_focus_entered"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer2/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer3/V_Sync" to="." method="_on_v_sync_item_selected"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer4/MaxFPS" to="." method="_on_max_fps_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer5/ScreenVibration" to="." method="_on_screen_vibration_toggled"]
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Graphic/VBoxContainer/HBoxContainer6/HUDScale" to="." method="_on_hud_scale_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer/MasterVolume" to="." method="_on_master_volume_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer2/BGMVolume" to="." method="_on_bgm_volume_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Audio/VBoxContainer/HBoxContainer3/SFXVolume" to="." method="_on_sfx_volume_drag_ended"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/RestoreDefault" to="." method="_on_restore_default_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer/MoveUp" to="." method="_on_move_up_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer2/MoveDown" to="." method="_on_move_down_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer3/MoveLeft" to="." method="_on_move_left_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer4/MoveRight" to="." method="_on_move_right_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer5/Jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer6/InteractionOrUse" to="." method="_on_interaction_or_use_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Control/VBoxContainer/HBoxContainer7/CancelOrDiscard" to="." method="_on_cancel_or_discard_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SettingPage/Other/VBoxContainer/HBoxContainer/Language" to="." method="_on_language_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Complete" to="." method="_on_complete_pressed"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://i3qvh1j84dp7"]
+
+[ext_resource type="Script" path="res://Scene/UM/UIScene/TitleScreen/title_screen.gd" id="1_kn04c"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kn04c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = -134.0
+offset_right = 309.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SinglePlay" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "开始游戏"
+
+[node name="MultiPlay" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "多人游戏"
+
+[node name="Setting" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "设置"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "退出"
+
+[node name="PlayerName" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -61.0
+offset_right = 68.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_placeholder_color = Color(1, 0.137255, 0.384314, 1)
+placeholder_text = "输入玩家名称"
+alignment = 1
+expand_to_text_length = true
+
+[connection signal="pressed" from="VBoxContainer/SinglePlay" to="." method="_on_single_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/MultiPlay" to="." method="_on_multi_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="text_submitted" from="PlayerName" to="." method="_on_player_name_text_submitted"]

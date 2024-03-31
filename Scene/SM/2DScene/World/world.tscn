@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7gaqmq5m31yd"]
+
+[ext_resource type="Texture2D" uid="uid://c2vlfgi6oif16" path="res://Scene/SM/2DScene/World/M_Tile_16.png" id="1_elmel"]
+[ext_resource type="Script" path="res://Scene/SM/2DScene/World/world.gd" id="2_ro1rn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fksvi"]
+resource_name = "Default"
+texture = ExtResource("1_elmel")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_jfejj"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_fksvi")
+
+[node name="World" type="TileMap" groups=["world"]]
+tile_set = SubResource("TileSet_jfejj")
+format = 2
+layer_0/name = "FloorAndWall"
+layer_0/navigation_enabled = false
+layer_0/tile_data = PackedInt32Array(196611, 0, 0, -196612, 0, 0, -131076, 0, 0, -65540, 0, 0, -4, 0, 0, 65532, 0, 0, 131068, 0, 0, 196604, 0, 0, 262140, 0, 0, -196611, 0, 0, 262141, 0, 0, -196610, 0, 0, 262142, 0, 0, -196609, 0, 0, 262143, 0, 0, -262144, 0, 0, 196608, 0, 0, -262143, 0, 0, 196609, 0, 0, -262142, 0, 0, 196610, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0)
+layer_1/name = "BackGround"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("2_ro1rn")

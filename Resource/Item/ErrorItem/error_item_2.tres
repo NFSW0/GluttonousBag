@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://dx40yttrnvsef"]
+
+[ext_resource type="Script" path="res://Resource/Item/item.gd" id="1_2rehw"]
+[ext_resource type="Texture2D" uid="uid://be1uas6slqdh5" path="res://Resource/Item/ErrorItem/ErrorItem.png" id="1_84yhf"]
+[ext_resource type="Script" path="res://Resource/Item/item_model_clone.gd" id="2_qhsdg"]
+
+[sub_resource type="Resource" id="Resource_h8eoh"]
+script = ExtResource("2_qhsdg")
+
+[resource]
+script = ExtResource("1_2rehw")
+item_id = 1
+item_name = "ErrorItem2"
+description = ""
+icon = ExtResource("1_84yhf")
+on_item_drop_down = SubResource("Resource_h8eoh")

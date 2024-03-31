@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://fdv1nyawcceu"]
+
+[ext_resource type="Script" path="res://Scene/UM/UIScene/NewArchive/new_archive.gd" id="1_vhluv"]
+
+[node name="NewArchive" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vhluv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArchiveName" type="LineEdit" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Name"
+alignment = 1
+
+[node name="Complete" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "完成"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "返回"
+
+[connection signal="pressed" from="VBoxContainer/Complete" to="." method="_on_complete_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

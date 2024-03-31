@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfshi8v4k2lev"]
+
+[ext_resource type="Script" path="res://Scene/SM/2DScene/DropItem/drop_item.gd" id="1_hm7nk"]
+[ext_resource type="Texture2D" uid="uid://be1uas6slqdh5" path="res://Resource/Item/ErrorItem/ErrorItem.png" id="2_1cdwn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_odhfv"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8c3qo"]
+radius = 6.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_w16mg"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:item_id")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:sleeping")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+
+[node name="DropItem" type="RigidBody2D" groups=["drop_item"]]
+collision_layer = 64
+collision_mask = 65
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_hm7nk")
+
+[node name="_" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_odhfv")
+
+[node name="ItemArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
+shape = SubResource("CircleShape2D_8c3qo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1cdwn")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_w16mg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="ItemArea" to="." method="_on_item_area_area_entered"]

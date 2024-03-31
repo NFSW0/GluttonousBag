@@ -1,0 +1,24 @@
+[gd_scene load_steps=10 format=3 uid="uid://53vlya8rp7qm"]
+
+[ext_resource type="Script" path="res://Scene/UM/um.gd" id="1_fmm76"]
+[ext_resource type="PackedScene" uid="uid://7mns0xw11ot8" path="res://Scene/UM/UIScene/MessageBar/message_bar.tscn" id="2_gldmx"]
+[ext_resource type="PackedScene" uid="uid://cx08mfobviqgl" path="res://Scene/UM/UIScene/MessageSender/message_sender.tscn" id="3_nnto1"]
+[ext_resource type="PackedScene" uid="uid://du2xf1dkhxma5" path="res://Scene/UM/UIScene/LanguageSetting/language_setting.tscn" id="4_bogns"]
+[ext_resource type="PackedScene" uid="uid://s3shk616gbwk" path="res://Scene/UM/UIScene/MultiPlay/multi_play.tscn" id="5_w0drm"]
+[ext_resource type="PackedScene" uid="uid://dib8fnv00nw3f" path="res://Scene/UM/UIScene/SelectArchive/select_archive.tscn" id="6_qxbww"]
+[ext_resource type="PackedScene" uid="uid://dihsl6f86fs8u" path="res://Scene/UM/UIScene/Setting/setting.tscn" id="7_pvwfc"]
+[ext_resource type="PackedScene" uid="uid://i3qvh1j84dp7" path="res://Scene/UM/UIScene/TitleScreen/title_screen.tscn" id="8_l6v0a"]
+[ext_resource type="PackedScene" uid="uid://fdv1nyawcceu" path="res://Scene/UM/UIScene/NewArchive/new_archive.tscn" id="9_osndt"]
+
+[node name="UM" type="CanvasLayer"]
+script = ExtResource("1_fmm76")
+ui_scenes = {
+"LanguageSetting": ExtResource("4_bogns"),
+"MessageBar": ExtResource("2_gldmx"),
+"MessageSender": ExtResource("3_nnto1"),
+"MultiPlay": ExtResource("5_w0drm"),
+"NewArchive": ExtResource("9_osndt"),
+"SelectArchive": ExtResource("6_qxbww"),
+"Setting": ExtResource("7_pvwfc"),
+"TitleScreen": ExtResource("8_l6v0a")
+}
